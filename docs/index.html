@@ -7,7 +7,9 @@
     <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎬</text></svg>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <style>
         * {
             margin: 0;
@@ -16,16 +18,17 @@
         }
 
         body {
-            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: #ffffff;
             min-height: 100vh;
-            color: #fff;
+            color: #1a1a1a;
+            line-height: 1.6;
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 24px;
         }
 
         /* Hero Section */
@@ -36,229 +39,297 @@
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 40px 20px;
+            padding: 60px 24px;
+            background: linear-gradient(180deg, #f8f9fa 0%, #ffffff 100%);
         }
 
         .hero h1 {
-            font-size: 4rem;
+            font-size: 3.5rem;
             font-weight: 700;
-            margin-bottom: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+            letter-spacing: -0.02em;
         }
 
         .hero .subtitle {
-            font-size: 1.5rem;
-            color: #a0aec0;
-            margin-bottom: 40px;
-            font-weight: 300;
+            font-size: 1.25rem;
+            color: #6b7280;
+            margin-bottom: 24px;
+            font-weight: 400;
         }
 
         .hero .description {
             font-size: 1.1rem;
-            color: #cbd5e0;
-            max-width: 600px;
+            color: #4b5563;
+            max-width: 560px;
             line-height: 1.8;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         .buttons {
             display: flex;
-            gap: 20px;
+            gap: 16px;
             flex-wrap: wrap;
             justify-content: center;
         }
 
         .btn {
-            padding: 16px 40px;
-            border-radius: 50px;
-            font-size: 1.1rem;
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-size: 1rem;
             font-weight: 500;
             text-decoration: none;
-            transition: all 0.3s ease;
+            transition: all 0.2s ease;
             display: inline-flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
+            cursor: pointer;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: #1a1a1a;
             color: #fff;
             border: none;
         }
 
         .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
+            background: #333;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
         }
 
         .btn-secondary {
-            background: transparent;
-            color: #fff;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            background: #fff;
+            color: #1a1a1a;
+            border: 1px solid #e5e7eb;
         }
 
         .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            border-color: rgba(255, 255, 255, 0.5);
+            background: #f9fafb;
+            border-color: #d1d5db;
         }
 
         /* Features Section */
         .features {
-            padding: 100px 20px;
-            background: rgba(0, 0, 0, 0.2);
+            padding: 100px 24px;
+            background: #fff;
         }
 
         .features h2 {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.25rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+
+        .features .section-desc {
+            text-align: center;
+            color: #6b7280;
             margin-bottom: 60px;
-            color: #fff;
+            font-size: 1.1rem;
         }
 
         .features-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
             max-width: 1000px;
             margin: 0 auto;
         }
 
         .feature-card {
-            background: rgba(255, 255, 255, 0.05);
-            border-radius: 20px;
-            padding: 40px;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
+            background: #f9fafb;
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid #f3f4f6;
+            transition: all 0.2s ease;
         }
 
         .feature-card:hover {
-            transform: translateY(-5px);
-            background: rgba(255, 255, 255, 0.08);
-            border-color: rgba(102, 126, 234, 0.5);
+            background: #fff;
+            border-color: #e5e7eb;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
         }
 
         .feature-icon {
-            font-size: 3rem;
+            width: 48px;
+            height: 48px;
+            background: #1a1a1a;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-bottom: 20px;
-        }
-
-        .feature-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 15px;
             color: #fff;
         }
 
+        .feature-card h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+
         .feature-card p {
-            color: #a0aec0;
+            color: #6b7280;
+            font-size: 0.95rem;
             line-height: 1.6;
+        }
+
+        /* Try It Section */
+        .tryit {
+            padding: 100px 24px;
+            background: #f9fafb;
+        }
+
+        .tryit h2 {
+            text-align: center;
+            font-size: 2.25rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+            color: #1a1a1a;
+        }
+
+        .tryit .section-desc {
+            text-align: center;
+            color: #6b7280;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .demo-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: #fff;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+            border: 1px solid #e5e7eb;
+        }
+
+        .demo-container iframe {
+            width: 100%;
+            height: 850px;
+            border: none;
+        }
+
+        .demo-fallback {
+            text-align: center;
+            padding: 16px;
+            background: #f9fafb;
+            border-top: 1px solid #e5e7eb;
+            color: #6b7280;
+            font-size: 0.9rem;
+        }
+
+        .demo-fallback a {
+            color: #1a1a1a;
+            font-weight: 500;
         }
 
         /* How to Use Section */
         .howto {
-            padding: 100px 20px;
+            padding: 100px 24px;
+            background: #fff;
         }
 
         .howto h2 {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 2.25rem;
+            font-weight: 600;
             margin-bottom: 60px;
+            color: #1a1a1a;
         }
 
         .steps {
             display: flex;
             flex-direction: column;
-            gap: 30px;
-            max-width: 700px;
+            gap: 32px;
+            max-width: 640px;
             margin: 0 auto;
         }
 
         .step {
             display: flex;
             align-items: flex-start;
-            gap: 25px;
+            gap: 24px;
         }
 
         .step-number {
-            width: 50px;
-            height: 50px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            border-radius: 50%;
+            width: 48px;
+            height: 48px;
+            background: #1a1a1a;
+            color: #fff;
+            border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.3rem;
-            font-weight: 700;
+            font-size: 1.125rem;
+            font-weight: 600;
             flex-shrink: 0;
         }
 
         .step-content h3 {
-            font-size: 1.2rem;
+            font-size: 1.125rem;
+            font-weight: 600;
             margin-bottom: 8px;
+            color: #1a1a1a;
         }
 
         .step-content p {
-            color: #a0aec0;
+            color: #6b7280;
+            font-size: 0.95rem;
             line-height: 1.6;
         }
 
         /* Credits Section */
         .credits {
-            padding: 80px 20px;
-            background: rgba(0, 0, 0, 0.3);
+            padding: 80px 24px;
+            background: #f9fafb;
             text-align: center;
         }
 
         .credits h2 {
-            font-size: 2rem;
-            margin-bottom: 30px;
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+            color: #1a1a1a;
         }
 
         .credits p {
-            color: #a0aec0;
-            margin-bottom: 15px;
-            line-height: 1.8;
+            color: #6b7280;
+            margin-bottom: 12px;
+            font-size: 0.95rem;
         }
 
         .credits a {
-            color: #667eea;
+            color: #1a1a1a;
             text-decoration: none;
+            font-weight: 500;
         }
 
         .credits a:hover {
             text-decoration: underline;
         }
 
-        /* Try It Section */
-        .tryit {
-            padding: 100px 20px;
-            background: rgba(0, 0, 0, 0.2);
-        }
-
-        .tryit h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 20px;
-        }
-
-        .demo-container {
-            max-width: 1000px;
-            margin: 0 auto;
-        }
-
         /* Footer */
         footer {
-            padding: 40px 20px;
+            padding: 40px 24px;
             text-align: center;
-            color: #718096;
-            font-size: 0.9rem;
+            color: #9ca3af;
+            font-size: 0.875rem;
+            background: #fff;
+            border-top: 1px solid #f3f4f6;
         }
 
         footer a {
-            color: #667eea;
+            color: #6b7280;
             text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #1a1a1a;
         }
 
         /* Responsive */
@@ -268,7 +339,7 @@
             }
 
             .hero .subtitle {
-                font-size: 1.2rem;
+                font-size: 1.1rem;
             }
 
             .buttons {
@@ -280,6 +351,10 @@
             .btn {
                 width: 100%;
                 justify-content: center;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
@@ -296,12 +371,11 @@
         </p>
         <div class="buttons">
             <a href="#demo" class="btn btn-primary">
-                🎬 지금 체험하기
+                <i data-lucide="play" style="width: 18px; height: 18px;"></i>
+                지금 체험하기
             </a>
-            <a href="https://github.com/notoow/SadTalker-GUI" class="btn btn-secondary">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                </svg>
+            <a href="https://github.com/notoow/SadTalker-GUI" class="btn btn-secondary" target="_blank">
+                <i data-lucide="github" style="width: 18px; height: 18px;"></i>
                 GitHub
             </a>
         </div>
@@ -311,34 +385,47 @@
     <section class="features">
         <div class="container">
             <h2>주요 기능</h2>
+            <p class="section-desc">간단하고 강력한 기능들</p>
             <div class="features-grid">
                 <div class="feature-card">
-                    <div class="feature-icon">🖼️</div>
+                    <div class="feature-icon">
+                        <i data-lucide="image" style="width: 24px; height: 24px;"></i>
+                    </div>
                     <h3>사진 한 장으로 충분</h3>
                     <p>정면을 바라보는 얼굴 사진 한 장만 있으면 됩니다. 복잡한 준비 없이 바로 시작하세요.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🎤</div>
+                    <div class="feature-icon">
+                        <i data-lucide="mic" style="width: 24px; height: 24px;"></i>
+                    </div>
                     <h3>다양한 음성 지원</h3>
                     <p>MP3, WAV 등 다양한 오디오 포맷을 지원합니다. 녹음 파일이나 TTS 음성도 사용 가능합니다.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">✨</div>
+                    <div class="feature-icon">
+                        <i data-lucide="sparkles" style="width: 24px; height: 24px;"></i>
+                    </div>
                     <h3>얼굴 화질 개선</h3>
                     <p>GFPGAN 기술로 생성된 영상의 얼굴 품질을 자동으로 향상시킵니다.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
+                    <div class="feature-icon">
+                        <i data-lucide="mouse-pointer-click" style="width: 24px; height: 24px;"></i>
+                    </div>
                     <h3>간편한 인터페이스</h3>
                     <p>복잡한 설정 없이 드래그 앤 드롭으로 쉽게 사용할 수 있습니다.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🌐</div>
+                    <div class="feature-icon">
+                        <i data-lucide="languages" style="width: 24px; height: 24px;"></i>
+                    </div>
                     <h3>한글 지원</h3>
                     <p>한국어 인터페이스로 누구나 쉽게 사용할 수 있습니다.</p>
                 </div>
                 <div class="feature-card">
-                    <div class="feature-icon">🔧</div>
+                    <div class="feature-icon">
+                        <i data-lucide="sliders" style="width: 24px; height: 24px;"></i>
+                    </div>
                     <h3>고급 설정</h3>
                     <p>전처리 방식, 움직임 정도 등 세부 옵션을 조절할 수 있습니다.</p>
                 </div>
@@ -350,21 +437,15 @@
     <section class="tryit" id="demo">
         <div class="container">
             <h2>지금 바로 체험하기</h2>
-            <p style="text-align: center; color: #a0aec0; margin-bottom: 30px;">
-                사진과 음성을 업로드하고 영상을 생성해보세요
-            </p>
+            <p class="section-desc">사진과 음성을 업로드하고 영상을 생성해보세요</p>
             <div class="demo-container">
                 <iframe
                     src="https://vinthony-sadtalker.hf.space"
-                    frameborder="0"
-                    width="100%"
-                    height="900"
-                    style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.1);"
                     allow="microphone"
                 ></iframe>
-                <p style="text-align: center; margin-top: 20px; color: #718096; font-size: 0.9rem;">
-                    로딩이 안 되면 <a href="https://huggingface.co/spaces/vinthony/SadTalker" target="_blank" style="color: #667eea;">여기를 클릭</a>해서 직접 이용하세요
-                </p>
+                <div class="demo-fallback">
+                    로딩이 안 되면 <a href="https://huggingface.co/spaces/vinthony/SadTalker" target="_blank">여기를 클릭</a>해서 직접 이용하세요
+                </div>
             </div>
         </div>
     </section>
@@ -399,7 +480,7 @@
                     <div class="step-number">4</div>
                     <div class="step-content">
                         <h3>영상 생성</h3>
-                        <p>"영상 생성" 버튼을 클릭하고 잠시 기다리면 완성된 영상을 다운로드할 수 있습니다.</p>
+                        <p>"Generate" 버튼을 클릭하고 잠시 기다리면 완성된 영상을 다운로드할 수 있습니다.</p>
                     </div>
                 </div>
             </div>
@@ -417,7 +498,7 @@
                 SadTalker: Learning Realistic 3D Motion Coefficients for<br>
                 Stylized Audio-Driven Single Image Talking Face Animation (CVPR 2023)
             </p>
-            <p style="margin-top: 30px;">
+            <p style="margin-top: 24px;">
                 <a href="https://arxiv.org/abs/2211.12194" target="_blank">Paper</a> ·
                 <a href="https://sadtalker.github.io" target="_blank">Project Page</a> ·
                 <a href="https://github.com/OpenTalker/SadTalker" target="_blank">Original GitHub</a>
@@ -428,11 +509,16 @@
     <!-- Footer -->
     <footer>
         <p>
-            Made with ❤️ by <a href="https://github.com/notoow" target="_blank">notoow</a>
+            Made with <i data-lucide="heart" style="width: 14px; height: 14px; display: inline; vertical-align: middle;"></i> by <a href="https://github.com/notoow" target="_blank">notoow</a>
         </p>
-        <p style="margin-top: 10px;">
+        <p style="margin-top: 8px;">
             MIT License · 2024
         </p>
     </footer>
+
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+    </script>
 </body>
 </html>
