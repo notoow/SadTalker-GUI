@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SadTalker-GUI - 사진으로 말하는 영상 만들기</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+            min-height: 100vh;
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: #a0aec0;
+            margin-bottom: 40px;
+            font-weight: 300;
+        }
+
+        .hero .description {
+            font-size: 1.1rem;
+            color: #cbd5e0;
+            max-width: 600px;
+            line-height: 1.8;
+            margin-bottom: 50px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 16px 40px;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #fff;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 40px rgba(102, 126, 234, 0.4);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 100px 20px;
+            background: rgba(0, 0, 0, 0.2);
+        }
+
+        .features h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: #fff;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            padding: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: rgba(102, 126, 234, 0.5);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .feature-card p {
+            color: #a0aec0;
+            line-height: 1.6;
+        }
+
+        /* How to Use Section */
+        .howto {
+            padding: 100px 20px;
+        }
+
+        .howto h2 {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+        }
+
+        .steps {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .step {
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+        }
+
+        .step-number {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .step-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .step-content p {
+            color: #a0aec0;
+            line-height: 1.6;
+        }
+
+        /* Credits Section */
+        .credits {
+            padding: 80px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        .credits h2 {
+            font-size: 2rem;
+            margin-bottom: 30px;
+        }
+
+        .credits p {
+            color: #a0aec0;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .credits a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        .credits a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer */
+        footer {
+            padding: 40px 20px;
+            text-align: center;
+            color: #718096;
+            font-size: 0.9rem;
+        }
+
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .buttons {
+                flex-direction: column;
+                width: 100%;
+                max-width: 300px;
+            }
+
+            .btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>SadTalker-GUI</h1>
+        <p class="subtitle">사진 한 장으로 말하는 영상을 만들어보세요</p>
+        <p class="description">
+            AI 기술을 활용하여 정지된 사진에 생명을 불어넣습니다.
+            음성 파일을 업로드하면 사진 속 인물이 해당 음성에 맞춰
+            자연스럽게 말하는 영상을 생성합니다.
+        </p>
+        <div class="buttons">
+            <a href="https://github.com/notoow/SadTalker-GUI" class="btn btn-primary">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                </svg>
+                GitHub에서 보기
+            </a>
+            <a href="https://github.com/notoow/SadTalker-GUI#installation" class="btn btn-secondary">
+                설치 방법
+            </a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <h2>주요 기능</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🖼️</div>
+                    <h3>사진 한 장으로 충분</h3>
+                    <p>정면을 바라보는 얼굴 사진 한 장만 있으면 됩니다. 복잡한 준비 없이 바로 시작하세요.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎤</div>
+                    <h3>다양한 음성 지원</h3>
+                    <p>MP3, WAV 등 다양한 오디오 포맷을 지원합니다. 녹음 파일이나 TTS 음성도 사용 가능합니다.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">✨</div>
+                    <h3>얼굴 화질 개선</h3>
+                    <p>GFPGAN 기술로 생성된 영상의 얼굴 품질을 자동으로 향상시킵니다.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3>간편한 인터페이스</h3>
+                    <p>복잡한 설정 없이 드래그 앤 드롭으로 쉽게 사용할 수 있습니다.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🌐</div>
+                    <h3>한글 지원</h3>
+                    <p>한국어 인터페이스로 누구나 쉽게 사용할 수 있습니다.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3>고급 설정</h3>
+                    <p>전처리 방식, 움직임 정도 등 세부 옵션을 조절할 수 있습니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How to Use Section -->
+    <section class="howto">
+        <div class="container">
+            <h2>사용 방법</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>사진 업로드</h3>
+                        <p>정면을 바라보는 얼굴 사진을 업로드하세요. 증명사진처럼 깔끔한 사진이 가장 좋은 결과를 만듭니다.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>음성 업로드</h3>
+                        <p>사진 속 인물이 말하게 할 음성 파일을 업로드하세요. 직접 녹음하거나 TTS로 생성한 파일도 가능합니다.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>설정 조절 (선택)</h3>
+                        <p>필요하다면 얼굴 화질 개선, 전처리 방식 등의 옵션을 조절하세요.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>영상 생성</h3>
+                        <p>"영상 생성" 버튼을 클릭하고 잠시 기다리면 완성된 영상을 다운로드할 수 있습니다.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Credits Section -->
+    <section class="credits">
+        <div class="container">
+            <h2>Credits</h2>
+            <p>
+                이 프로젝트는 <a href="https://github.com/OpenTalker/SadTalker" target="_blank">SadTalker</a>를 기반으로 합니다.
+            </p>
+            <p>
+                SadTalker: Learning Realistic 3D Motion Coefficients for<br>
+                Stylized Audio-Driven Single Image Talking Face Animation (CVPR 2023)
+            </p>
+            <p style="margin-top: 30px;">
+                <a href="https://arxiv.org/abs/2211.12194" target="_blank">Paper</a> ·
+                <a href="https://sadtalker.github.io" target="_blank">Project Page</a> ·
+                <a href="https://github.com/OpenTalker/SadTalker" target="_blank">Original GitHub</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>
+            Made with ❤️ by <a href="https://github.com/notoow" target="_blank">notoow</a>
+        </p>
+        <p style="margin-top: 10px;">
+            MIT License · 2024
+        </p>
+    </footer>
+</body>
+</html>
