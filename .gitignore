@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+venv/
+env/
+.venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Output
+results/
+outputs/
+*.mp4
+*.avi
+*.mov
+
+# Temporary
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# Model files (too large for git)
+checkpoints/
+gfpgan/
+*.pth
+*.pt
+*.onnx
